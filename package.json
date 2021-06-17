@@ -1,0 +1,25 @@
+{
+  "name": "mbcjs-16-1-ipl-punit29",
+  "version": "1.0.0",
+  "description": "Ipl project",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mountblue/mbcjs-16-1-ipl-Punit29.git"
+  },
+  "author": "Punit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mountblue/mbcjs-16-1-ipl-Punit29/issues"
+  },
+  "homepage": "https://github.com/mountblue/mbcjs-16-1-ipl-Punit29#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  },
+  "devDependencies": {
+    "jest": "^27.0.4"
+  }
+}
