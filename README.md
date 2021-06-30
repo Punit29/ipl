@@ -1,27 +1,10 @@
-# Ipl-project
-Downloaded the data from: https://www.kaggle.com/manasgarg/ipl
+# ipl-sql
+IPL project using sql.
 
-There should be 2 files:
-- deliveries.csv
-- matches.csv
-
-
-## Problem
-In this data assignment we were asked to transform raw data of IPL to calculate the following stats:
-
-1. Number of matches played per year for all the years in IPL.
-2. Number of matches won per team per year in IPL.
-3. Extra runs conceded per team in the year 2016
-4. Top 10 economical bowlers in the year 2015
-
-## Project Structure
-
-`archive` directory contains the csv file data.
-
-`ipl` directory contains the functions for different problem statement.
-
-`test` directory contains the test cases for every function in the 'ipl' folder.
-
-`testData` directory contains the dummy data and result for every function present in 'ipl' folder.
-
-`index.js` read the csv data and calls the functions then saves the results in `output.json`.
+SQL/Postgres using IPL Project
+----------------------------------------
+- Write code that parses CSV and stores matches and deliveries related data in a normalized form in database.
+- Learn about one to one, one to many, many to one and many to many relationships
+- Identity one-to-one, one to many, many to one and many to many relationships in the matches data and deliveries data.
+- Think about the number tables you would need and how to design them.
+- Once the script is made to parse matches.csv and deliveries.csv data into database, solve the same questions again, however this time using Postgres data.

@@ -1,44 +1,13 @@
-const fs = require("fs");
-const csv = require("csvtojson");
-
-const matchesPlayed = require("./ipl/matchesPlayed");
-const matchesWonByTeam = require("./ipl/matchesWonByTeam");
-const extraRuns = require("./ipl/extraRuns");
-const bestEconomy = require("./ipl/bestEconomy");
-
-const MATCHES = './archive/matches.csv';
-const DELIVERIES = './archive/deliveries.csv';
-
-async function main(){
-    
-    const matchesData = await csv().fromFile(MATCHES);
-    const deliveriesData = await csv().fromFile(DELIVERIES);
-
-    let matchesPlayedResult =  matchesPlayed(matchesData);
-    let matchesWonByTeamResult =  matchesWonByTeam(matchesData);
-
-    let extraRunsResult =  extraRuns(matchesData,deliveriesData);
-    let bestEconomyResult =  bestEconomy(matchesData,deliveriesData);
-    
-    saveData(matchesPlayedResult,matchesWonByTeamResult,extraRunsResult,bestEconomyResult);
-
-}
+const express = require('express')
+const app = express()
+const final = require('./final');
 
 
+app.use(express.static(__dirname + "/public"));
 
-function saveData(matchesPlayedResult,matchesWonByTeamResult,extraRunsResult,bestEconomyResult){
-    const jsonData = {
-        matchesPlayed: matchesPlayedResult,
-        matchesWonByTeam: matchesWonByTeamResult,
-        extraRuns: extraRunsResult,
-        bestEconomy: bestEconomyResult
-    };
-    const jsonString = JSON.stringify(jsonData);
-    fs.writeFile("./output.json", jsonString, "utf8", err => {
-        if(err){
-            console.log(err);
-        }
-    });
-}
+app.get('/', (req, res) => res.send(final));
 
-main().catch((err) => console.log(err));
+
+app.listen(process.env.PORT || 3000, function () {
+    console.log("server running on port 3000");
+  });
