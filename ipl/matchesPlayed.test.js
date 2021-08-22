@@ -1,8 +1,8 @@
-const matchesPlayed = require('./matchesPlayed');
-const MATCHES = './archive/matches.csv';
-const csv = require("csvtojson");
+const matchesPlayed = require("./matchesPlayed")
+const MATCHES = './archive/matches.csv'
+const csv = require("csvtojson")
 
-let matchesData;
+let matchesData
 
 async function receiveData() {
   matchesData = await csv().fromFile(MATCHES);
@@ -45,3 +45,54 @@ test('Testing if the data sent is undefined', () =>{
         matchesPlayed(undefined);
     }).toThrow(Error);
 });
+
+// @ponicode
+describe("matchesPlayed", () => {
+    test("0", () => {
+        let callFunction = () => {
+            matchesPlayed("Maurice Purdy")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("1", () => {
+        let callFunction = () => {
+            matchesPlayed("Ronald Keeling")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("2", () => {
+        let callFunction = () => {
+            matchesPlayed("Becky Bednar")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("3", () => {
+        let callFunction = () => {
+            matchesPlayed("Gail Hoppe")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("4", () => {
+        let callFunction = () => {
+            matchesPlayed("Janet Homenick")
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+
+    test("5", () => {
+        let callFunction = () => {
+            matchesPlayed(undefined)
+        }
+    
+        expect(callFunction).not.toThrow()
+    })
+})
